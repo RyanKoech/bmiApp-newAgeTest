@@ -13,6 +13,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
+        <item name="colorOnSurface">@color/black_700</item>
     </style>
 
     <style name="Theme.BmiApp.Starting" parent="Theme.SplashScreen">
@@ -20,4 +21,15 @@
         <item name="postSplashScreenTheme">@style/Theme.BmiApp</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/bmi_logo_splash</item>
     </style>
+
+    <style name="Style_HintTextAppearance" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/poppins_light</item>
+    </style>
+
+    <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar" >
+        <item name="android:textColorPrimary">@color/skyBlue_800</item>
+        <item name="android:textColorSecondary">@color/skyBlue_800</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
 </resources>
