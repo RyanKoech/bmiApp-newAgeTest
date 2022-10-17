@@ -13,10 +13,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway"
+        android:fontFamily="@font/raleway_regular"
         android:text="@string/fragment_addDetails_title"
         android:textColor="@color/skyBlue_800"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textSize="24sp"
         android:layout_marginTop="48dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/Style_HintTextAppearance"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textColor="@color/skyBlue_800"
             tools:text="Testing"/>
 
@@ -43,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:textAppearance="@style/Style_HintTextAppearance"
+        android:textSize="18sp"
         android:textColor="@color/black_400"
         android:text="@string/fragment_addDetails_subtitle" />
 
@@ -59,6 +60,7 @@
             android:layout_weight="1"
             android:textAlignment="center"
             android:fontFamily="@font/poppins"
+            android:textSize="16sp"
             android:text="@string/text_weight"
             android:textColor="@color/black" />
 
@@ -68,6 +70,7 @@
             android:layout_weight="1"
             android:textAlignment="center"
             android:fontFamily="@font/poppins"
+            android:textSize="16sp"
             android:text="@string/text_height"
             android:textColor="@color/black" />
 
@@ -77,6 +80,7 @@
             android:layout_weight="1"
             android:textAlignment="center"
             android:fontFamily="@font/poppins"
+            android:textSize="16sp"
             android:text="@string/text_gender"
             android:textColor="@color/black" />
 
@@ -155,8 +159,10 @@
         android:layout_marginHorizontal="12dp"
         android:background="@drawable/button_shape"
         android:textAllCaps="false"
+        android:paddingTop="4dp"
         android:fontFamily="@font/poppins_bold"
         android:textColor="@color/white"
+        android:textSize="16sp"
         android:text="@string/text_calculate"/>
 
 
