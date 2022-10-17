@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BmiApp" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="Theme.BmiApp" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/skyBlue_800</item>
@@ -30,6 +30,7 @@
         <item name="android:textColorPrimary">@color/skyBlue_800</item>
         <item name="android:textColorSecondary">@color/skyBlue_800</item>
         <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>
