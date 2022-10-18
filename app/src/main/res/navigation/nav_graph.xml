@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
+    android:label="@string/fragment_title_addDetails"
     app:startDestination="@id/addDetailsFragment">
 
     <fragment
         android:id="@+id/addDetailsFragment"
         android:name="com.example.bmiNewAge.ui.AddDetailsFragment"
-        android:label="fragment_add_details"
-        tools:layout="@layout/fragment_add_details" >
+        android:label=" Add BMI Details"
+        tools:layout="@layout/fragment_add_details">
         <action
             android:id="@+id/action_addDetailsFragment_to_resultsFragment"
             app:destination="@id/resultsFragment" />
@@ -17,8 +18,8 @@
     <fragment
         android:id="@+id/resultsFragment"
         android:name="com.example.bmiNewAge.ui.ResultsFragment"
-        android:label="fragment_results"
-        tools:layout="@layout/fragment_results" >
+        android:label="@string/fragment_title_results"
+        tools:layout="@layout/fragment_results">
         <argument
             android:name="weight"
             app:argType="float" />

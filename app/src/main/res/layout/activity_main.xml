@@ -12,8 +12,22 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@drawable/gradient_0deg"
-        tools:title="Test Title"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:titleTextColor="@color/white"
+        app:titleTextAppearance="@style/BmiAppTheme.ToolbarTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/BmiAppTheme.Toolbar">
+
+        <TextView
+            android:id="@+id/textView_toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_regular"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            tools:text="Title"/>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer_main"

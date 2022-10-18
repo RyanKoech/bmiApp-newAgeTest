@@ -5,6 +5,8 @@
     <string name="fragment_addDetails_title">Enter Personal Details</string>
     <string name="input_hint_name">Name</string>
     <string name="fragment_addDetails_subtitle">Calculate Your Body Mass Index</string>
+    <string name="fragment_title_addDetails">Add BMI Details</string>
+    <string name="fragment_title_results">BMI Details</string>
     <string name="text_weight">Weight</string>
     <string name="text_height">Height</string>
     <string name="text_gender">Gender</string>

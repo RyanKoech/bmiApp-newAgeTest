@@ -5,9 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import com.example.bmiNewAge.R
 import com.example.bmiNewAge.databinding.FragmentAddDetailsBinding
-import com.example.bmiNewAge.other.BmiCategories
 import com.example.bmiNewAge.other.Constants
 import com.example.bmiNewAge.other.Utilities
 
@@ -21,6 +22,7 @@ class AddDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+        this.requireActivity().findViewById<TextView>(R.id.textView_toolbarTitle).text = getString(R.string.fragment_title_addDetails)
         _binding = FragmentAddDetailsBinding.inflate(inflater, container, false)
 
         initializeViewElements()
