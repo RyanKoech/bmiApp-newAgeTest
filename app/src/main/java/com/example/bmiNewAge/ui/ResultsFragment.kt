@@ -9,6 +9,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.bmiNewAge.databinding.FragmentResultsBinding
 import com.example.bmiNewAge.other.BmiCategories
 import com.example.bmiNewAge.other.Utilities
+import com.google.android.gms.ads.AdRequest
 import kotlin.properties.Delegates
 
 
@@ -27,7 +28,6 @@ class ResultsFragment : Fragment() {
     ): View {
 
         _binding = FragmentResultsBinding.inflate(inflater, container, false)
-
         weight = args.weight.toDouble()
         height = args.height.toDouble()
         name = args.name
@@ -40,23 +40,20 @@ class ResultsFragment : Fragment() {
 
     private fun initializeViewElements() {
 
-        println(weight)
-        println(height)
-
         val bmi : Double = Utilities.calculateBmi(weight, height)
         val _ponderalIndex : Double = Utilities.calculatePonderalIndex(weight, height)
         val ponderalIndex : String = Utilities.roundOffToTwoDp(_ponderalIndex)
         val bmiCategory : BmiCategories = Utilities.getBmiCategory(bmi)
         val formatedBmi = Utilities.getFormatBmiResult(bmi)
+        val addRequest : AdRequest = AdRequest.Builder().build()
 
-        println(bmi)
-        println(ponderalIndex)
-        println(bmiCategory)
-
-        binding.textViewUserMessage.text = Utilities.getUserBmiResultMessage(name, bmiCategory)
-        binding.textViewBmiRange.text = Utilities.getBmiRangeMessage(bmiCategory)
-        binding.textViewPonderalResult.text = "Ponderal Index : ${ponderalIndex}kg/m3"
-        binding.textViewBmiWhole.text = formatedBmi[0]
-        binding.textViewBmiDecimal.text = formatedBmi[1]
+        binding.apply {
+            textViewUserMessage.text = Utilities.getUserBmiResultMessage(name, bmiCategory)
+            textViewBmiRange.text = Utilities.getBmiRangeMessage(bmiCategory)
+            textViewPonderalResult.text = "Ponderal Index : ${ponderalIndex}kg/m3"
+            textViewBmiWhole.text = formatedBmi[0]
+            textViewBmiDecimal.text = formatedBmi[1]
+            adView.loadAd(addRequest)
+        }
     }
 }
