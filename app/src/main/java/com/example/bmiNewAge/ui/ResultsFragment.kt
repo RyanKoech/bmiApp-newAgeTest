@@ -29,7 +29,7 @@ class ResultsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        this.requireActivity().findViewById<TextView>(R.id.textView_toolbarTitle).text = getString(R.string.fragment_title_results)
+        this.activity?.findViewById<TextView>(R.id.textView_toolbarTitle)?.text = getString(R.string.fragment_title_results)
         _binding = FragmentResultsBinding.inflate(inflater, container, false)
         weight = args.weight.toDouble()
         height = args.height.toDouble()

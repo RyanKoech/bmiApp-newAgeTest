@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.VisibleForTesting
 import androidx.navigation.fragment.findNavController
 import com.example.bmiNewAge.R
 import com.example.bmiNewAge.databinding.FragmentAddDetailsBinding
@@ -15,14 +16,15 @@ import com.example.bmiNewAge.other.Utilities
 class AddDetailsFragment : Fragment() {
 
     private var _binding : FragmentAddDetailsBinding? = null
-    private val binding get() = _binding!!
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    internal val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        this.requireActivity().findViewById<TextView>(R.id.textView_toolbarTitle).text = getString(R.string.fragment_title_addDetails)
+        this.activity?.findViewById<TextView>(R.id.textView_toolbarTitle)?.text = getString(R.string.fragment_title_addDetails)
         _binding = FragmentAddDetailsBinding.inflate(inflater, container, false)
 
         initializeViewElements()
