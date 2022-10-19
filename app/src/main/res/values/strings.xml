@@ -11,4 +11,9 @@
     <string name="text_height">Height</string>
     <string name="text_gender">Gender</string>
     <string name="text_calculate">Calculate</string>
+    <string name="message_ponderal_index">Ponderal Index : %skg/m3</string>
+    <string name="message_bmi_result_underweight">Hello %s, you are underweight</string>
+    <string name="message_bmi_result_normal">Hello %s, you are normal</string>
+    <string name="message_bmi_result_overweight">Hello %s, you are overweight</string>
+    <string name="message_bmi_result_obese">Hello %s, you are obese</string>
 </resources>

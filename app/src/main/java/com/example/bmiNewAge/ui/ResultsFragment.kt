@@ -47,15 +47,15 @@ class ResultsFragment : Fragment() {
         val _ponderalIndex : Double = Utilities.calculatePonderalIndex(weight, height)
         val ponderalIndex : String = Utilities.roundOffToTwoDp(_ponderalIndex)
         val bmiCategory : BmiCategories = Utilities.getBmiCategory(bmi)
-        val formatedBmi = Utilities.getFormatBmiResult(bmi)
+        val formattedBmi = Utilities.getFormatBmiResult(bmi)
         val addRequest : AdRequest = AdRequest.Builder().build()
 
         binding.apply {
             textViewUserMessage.text = Utilities.getUserBmiResultMessage(name, bmiCategory)
             textViewBmiRange.text = Utilities.getBmiRangeMessage(bmiCategory)
-            textViewPonderalResult.text = "Ponderal Index : ${ponderalIndex}kg/m3"
-            textViewBmiWhole.text = formatedBmi[0]
-            textViewBmiDecimal.text = formatedBmi[1]
+            textViewPonderalResult.text = getString(R.string.message_ponderal_index, ponderalIndex)
+            textViewBmiWhole.text = formattedBmi[0]
+            textViewBmiDecimal.text = formattedBmi[1]
             adView.loadAd(addRequest)
         }
     }

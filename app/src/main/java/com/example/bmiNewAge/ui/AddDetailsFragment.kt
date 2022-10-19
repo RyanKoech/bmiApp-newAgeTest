@@ -1,6 +1,7 @@
 package com.example.bmiNewAge.ui
 
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -63,7 +64,7 @@ class AddDetailsFragment : Fragment() {
         val name = binding.editTextName.text.toString()
 
         if(name.isBlank()){
-            binding.editTextName.error = "Please enter your name."
+            binding.editTextName.error = "Please enter your name"
             return
         }
 
@@ -71,6 +72,7 @@ class AddDetailsFragment : Fragment() {
         val height : Int = binding.numberPickerHeight.value
 
         val action  = AddDetailsFragmentDirections.actionAddDetailsFragmentToResultsFragment(weight.toFloat(), height.toFloat(), name)
+        binding.editTextName.text = Editable.Factory.getInstance().newEditable("")
         findNavController().navigate(action)
 
     }

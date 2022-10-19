@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //AdMob Initialization
         MobileAds.initialize(this) {}
 
         val navHostFragment = supportFragmentManager
