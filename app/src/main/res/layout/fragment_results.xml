@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.ResultsFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="24dp"
+        android:paddingTop="32dp"
+        android:background="@drawable/result_card_shape"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:alpha="0.3"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:text="Body Mass Index"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:fontFamily="@font/raleway_semibold"
+            android:alpha="0.3"
+            android:textAllCaps="true"/>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:alpha="0.3"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/textView_bmiWhole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:textColor="@color/white"
+                android:textSize="104sp"
+                tools:text="18" />
+
+            <TextView
+                android:id="@+id/textView_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:text="."
+                android:fontFamily="@font/poppins"
+                android:layout_toEndOf="@id/textView_bmiWhole"
+                android:layout_alignBaseline="@id/textView_bmiWhole"/>
+
+            <TextView
+                android:id="@+id/textView_bmiDecimal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/textView_bmiWhole"
+                android:layout_toEndOf="@id/textView_point"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                tools:text="61" />
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="150dp"
+            android:layout_height="2dp"
+            android:translationY="-20dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"/>
+
+        <TextView
+            android:id="@+id/textView_userMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textAllCaps="true"
+            tools:text="Hello John, You are Normal"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/textView_bmiRange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/raleway_regular"
+            android:textSize="12sp"
+            tools:text="Normal BMI range: 18.5kg/m2 - 25kg/m2"/>
+
+        <TextView
+            android:id="@+id/textView_ponderalResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:fontFamily="@font/raleway_regular"
+            android:textSize="12sp"
+            tools:text="Ponderal Index: 10.64kg/m3"/>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal"
+            android:paddingHorizontal="32dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_transparent_shape"
+                android:paddingHorizontal="15dp"
+                android:minHeight="40dp"
+                android:textAllCaps="false"
+                android:text="Share"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/raleway_regular"
+                android:drawableStart="@drawable/icon_share"
+                android:drawablePadding="10dp"/>
+
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="0dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_transparent_shape"
+                android:paddingHorizontal="15dp"
+                android:minHeight="40dp"
+                android:textAllCaps="false"
+                android:text="Rate"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/raleway_regular"
+                android:drawableStart="@drawable/icon_star"
+                android:drawablePadding="10dp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="LARGE_BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginHorizontal="2dp">
+    </com.google.android.gms.ads.AdView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

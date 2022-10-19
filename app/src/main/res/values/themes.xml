@@ -1,16 +1,48 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BmiApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.BmiApp" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/skyBlue_800</item>
+        <item name="colorPrimaryVariant">@color/skyBlue_800</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/eucalyptusGreen_300</item>
+        <item name="colorSecondaryVariant">@color/eucalyptusGreen_300</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
+        <item name="colorOnSurface">@color/black_700</item>
     </style>
+
+    <style name="Theme.BmiApp.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="postSplashScreenTheme">@style/Theme.BmiApp</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/bmi_logo_splash</item>
+    </style>
+
+    <style name="Style_HintTextAppearance" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/poppins_light</item>
+    </style>
+
+    <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar" >
+        <item name="android:textColorPrimary">@color/skyBlue_800</item>
+        <item name="android:textColorSecondary">@color/skyBlue_800</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BmiAppTheme.ToolbarTitle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="BmiAppTheme.Toolbar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+
 </resources>

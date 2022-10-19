@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="12dp"
+    android:clipToPadding="false"
+    tools:context=".ui.AddDetailsFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_regular"
+        android:text="@string/fragment_addDetails_title"
+        android:textColor="@color/skyBlue_800"
+        android:textSize="24sp"
+        android:layout_marginTop="48dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/outlinedTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/input_hint_name"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="12dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Style_HintTextAppearance"
+            android:textSize="16sp"
+            android:textColor="@color/skyBlue_800"
+            tools:text="Testing"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:textAppearance="@style/Style_HintTextAppearance"
+        android:textSize="18sp"
+        android:textColor="@color/black_400"
+        android:text="@string/fragment_addDetails_subtitle" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins"
+            android:textSize="16sp"
+            android:text="@string/text_weight"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins"
+            android:textSize="16sp"
+            android:text="@string/text_height"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins"
+            android:textSize="16sp"
+            android:text="@string/text_gender"
+            android:textColor="@color/black" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="6dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="6dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="0.5" >
+            </Space>
+
+            <NumberPicker
+                android:id="@+id/numberPicker_weight"
+                android:theme="@style/AppTheme.Picker"
+                android:layout_width="70dp"
+                android:selectionDividerHeight="3dp"
+                android:layout_height="150dp"
+                tools:targetApi="q"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+
+            <NumberPicker
+                android:id="@+id/numberPicker_height"
+                android:theme="@style/AppTheme.Picker"
+                android:layout_width="70dp"
+                android:selectionDividerHeight="3dp"
+                android:layout_height="150dp"
+                tools:targetApi="q"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+
+            <NumberPicker
+                android:id="@+id/numberPicker_gender"
+                android:theme="@style/AppTheme.Picker"
+                android:layout_width="70dp"
+                android:selectionDividerHeight="3dp"
+                android:layout_height="150dp"
+                tools:targetApi="q" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="0.5" >
+            </Space>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/button_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="12dp"
+        android:background="@drawable/button_shape"
+        android:textAllCaps="false"
+        android:paddingTop="4dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="@string/text_calculate"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
