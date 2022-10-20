@@ -32,6 +32,7 @@
 - TestNavController
 
 ## Screenshots
+<img src="screenshots/screenshot_splashScreen.png" height="500" alt="Splash screen"/> <img src="screenshots/screenshot_addDetailsScreen.png" height="500" alt="Add Details screen"/> <img src="screenshots/screenshot_bmiResultsScreen.png" height="500" alt="BMI Results screen"/>
 
 ## Getting Started
 
