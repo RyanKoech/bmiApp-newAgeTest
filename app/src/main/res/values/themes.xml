@@ -10,10 +10,12 @@
         <item name="colorSecondary">@color/eucalyptusGreen_300</item>
         <item name="colorSecondaryVariant">@color/eucalyptusGreen_300</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
         <item name="colorOnSurface">@color/black_700</item>
+        <item name="android:windowBackground">@drawable/gradient_0deg</item>
+        <item name="toolbarStyle">@style/Widget.Toolbar</item>
+        <item name="android:statusBarColor">#00000000</item>
+
     </style>
 
     <style name="Theme.BmiApp.Starting" parent="Theme.SplashScreen">
@@ -42,6 +44,11 @@
     <style name="BmiAppTheme.Toolbar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <!-- Customize color of navigation drawer icon and back arrow -->
         <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <style name="Widget.Toolbar" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item>
+        <item name="android:background">@drawable/gradient_0deg</item>
     </style>
 
 
