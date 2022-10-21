@@ -1,4 +1,4 @@
-package com.example.bmiNewAge.ui
+package com.example.bmiNewAge.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,8 +9,8 @@ import android.widget.TextView
 import androidx.navigation.fragment.navArgs
 import com.example.bmiNewAge.R
 import com.example.bmiNewAge.databinding.FragmentResultsBinding
-import com.example.bmiNewAge.other.BmiCategories
-import com.example.bmiNewAge.other.Utilities
+import com.example.bmiNewAge.common.BmiCategories
+import com.example.bmiNewAge.common.Utilities
 import com.google.android.gms.ads.AdRequest
 import kotlin.properties.Delegates
 

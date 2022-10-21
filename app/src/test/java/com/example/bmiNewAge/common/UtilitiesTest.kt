@@ -1,4 +1,4 @@
-package com.example.bmiNewAge.other
+package com.example.bmiNewAge.common
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test

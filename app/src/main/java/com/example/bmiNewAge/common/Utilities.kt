@@ -1,4 +1,4 @@
-package com.example.bmiNewAge.other
+package com.example.bmiNewAge.common
 
 import java.math.RoundingMode
 import java.text.DecimalFormat

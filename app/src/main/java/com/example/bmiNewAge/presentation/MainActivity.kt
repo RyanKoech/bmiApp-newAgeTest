@@ -1,4 +1,4 @@
-package com.example.bmiNewAge
+package com.example.bmiNewAge.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.bmiNewAge.R
 import com.google.android.gms.ads.MobileAds
 
 class MainActivity : AppCompatActivity() {

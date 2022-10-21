@@ -1,4 +1,4 @@
-package com.example.bmiNewAge.ui
+package com.example.bmiNewAge.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.core.os.bundleOf
@@ -9,8 +9,8 @@ import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.example.bmiNewAge.R
-import com.example.bmiNewAge.other.Constants
-import com.example.bmiNewAge.other.Utilities
+import com.example.bmiNewAge.common.Constants
+import com.example.bmiNewAge.common.Utilities
 import com.google.common.truth.Truth.assertThat
 import org.hamcrest.Matchers.allOf
 import org.junit.Before

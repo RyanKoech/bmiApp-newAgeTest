@@ -1,4 +1,4 @@
-package com.example.bmiNewAge.ui
+package com.example.bmiNewAge.presentation
 
 import android.os.Bundle
 import android.text.Editable
@@ -11,8 +11,8 @@ import androidx.annotation.VisibleForTesting
 import androidx.navigation.fragment.findNavController
 import com.example.bmiNewAge.R
 import com.example.bmiNewAge.databinding.FragmentAddDetailsBinding
-import com.example.bmiNewAge.other.Constants
-import com.example.bmiNewAge.other.Utilities
+import com.example.bmiNewAge.common.Constants
+import com.example.bmiNewAge.common.Utilities
 
 class AddDetailsFragment : Fragment() {
 
