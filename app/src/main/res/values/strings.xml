@@ -16,4 +16,5 @@
     <string name="message_bmi_result_normal">Hello %s, you are normal</string>
     <string name="message_bmi_result_overweight">Hello %s, you are overweight</string>
     <string name="message_bmi_result_obese">Hello %s, you are obese</string>
+    <string name="full_stop">.</string>
 </resources>
