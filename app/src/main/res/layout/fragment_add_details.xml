@@ -11,7 +11,7 @@
     tools:context=".presentation.add_details.AddDetailsFragment"
     tools:theme="@style/Theme.BmiApp">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fragment_addDetails_title"
@@ -38,7 +38,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -52,7 +52,7 @@
         android:orientation="horizontal"
         android:layout_marginTop="24dp">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -60,7 +60,7 @@
             android:textAlignment="center"
             android:text="@string/text_weight" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -68,7 +68,7 @@
             android:textAlignment="center"
             android:text="@string/text_height" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -81,11 +81,8 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:elevation="6dp"
         android:layout_marginTop="16dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardElevation="6dp">
+        style="@style/CardView.NumberPicker">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -100,7 +97,7 @@
 
             <NumberPicker
                 android:id="@+id/numberPicker_weight"
-                android:theme="@style/AppTheme.Picker"
+                android:theme="@style/NumberPicker"
                 android:layout_width="70dp"
                 android:selectionDividerHeight="3dp"
                 android:layout_height="150dp"
@@ -114,7 +111,7 @@
 
             <NumberPicker
                 android:id="@+id/numberPicker_height"
-                android:theme="@style/AppTheme.Picker"
+                android:theme="@style/NumberPicker"
                 android:layout_width="70dp"
                 android:selectionDividerHeight="3dp"
                 android:layout_height="150dp"
@@ -128,7 +125,7 @@
 
             <NumberPicker
                 android:id="@+id/numberPicker_gender"
-                android:theme="@style/AppTheme.Picker"
+                android:theme="@style/NumberPicker"
                 android:layout_width="70dp"
                 android:selectionDividerHeight="3dp"
                 android:layout_height="150dp"
@@ -150,14 +147,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginHorizontal="12dp"
-        android:background="@drawable/button_shape"
-        app:backgroundTint="@null"
-        android:textAllCaps="false"
         android:paddingTop="4dp"
-        android:fontFamily="@font/poppins_bold"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:text="@string/text_calculate"/>
-
+        android:text="@string/text_calculate"
+        style="@style/Button.Calculate"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

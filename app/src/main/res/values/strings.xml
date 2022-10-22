@@ -17,4 +17,6 @@
     <string name="message_bmi_result_overweight">Hello %s, you are overweight</string>
     <string name="message_bmi_result_obese">Hello %s, you are obese</string>
     <string name="full_stop">.</string>
+    <string name="text_rate">Rate</string>
+    <string name="text_share">Share</string>
 </resources>

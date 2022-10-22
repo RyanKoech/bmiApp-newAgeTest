@@ -13,8 +13,7 @@
         <!-- Customize your theme here. -->
         <item name="colorOnSurface">@color/black_700</item>
         <item name="android:windowBackground">@drawable/gradient_0deg</item>
-        <item name="toolbarStyle">@style/Widget.Toolbar</item>
-        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:statusBarColor">@color/transparent</item>
 
     </style>
 
@@ -24,6 +23,7 @@
         <item name="windowSplashScreenAnimatedIcon">@drawable/bmi_logo_splash</item>
     </style>
 
+<!--    TEXT APPEARANCE STYLES-->
     <style name="TextAppearance" />
 
     <style name="TextAppearance.ToolbarTitle" parent="TextAppearance.MaterialComponents.Headline6">
@@ -98,40 +98,52 @@
         <item name="fontFamily">@font/raleway_regular</item>
     </style>
 
-    <style name="TextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
-        <item name="android:textSize">@dimen/TextSize_Button</item>
-        <item name="android:textAllCaps">false</item>
+<!--    CARD VIEW STYLES-->
+
+    <style name="CardView" parent="Widget.MaterialComponents.CardView"/>
+
+    <style name="CardView.NumberPicker" parent="CardView">
+        <item name="cardElevation">@dimen/CardElevation_PickerCard</item>
     </style>
 
-    <style name="TextAppearance.Button.ResultScreen" parent="TextAppearance.Button">
-        <item name="android:fontFamily">@font/raleway_regular</item>
-        <item name="fontFamily">@font/raleway_regular</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
+<!--    NUMBER PICKER STYLES-->
 
-    <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar" >
+    <style name="NumberPicker" parent="Theme.AppCompat.Light.NoActionBar" >
         <item name="android:textColorPrimary">@color/skyBlue_800</item>
         <item name="android:textColorSecondary">@color/skyBlue_800</item>
         <item name="android:fontFamily">@font/poppins_bold</item>
         <item name="android:textSize">@dimen/TextSize_Body1</item>
     </style>
 
-    <style name="BmiAppTheme.ToolbarTitle" parent="Widget.AppCompat.Toolbar">
-        <item name="android:fontFamily">@font/raleway_regular</item>
-        <item name="android:textSize">22sp</item>
-        <item name="android:textAlignment">center</item>
+<!--    BUTTON STYLES-->
+
+    <style name="Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="backgroundTint">@null</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/TextSize_Button</item>
+        <item name="iconTint">@null</item>
     </style>
+
+    <style name="Button.ResultScreen" parent="Button">
+        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:minHeight">@dimen/MinHeight_ResultScreenButton</item>
+        <item name="android:background">@drawable/button_transparent_shape</item>
+    </style>
+
+    <style name="Button.Calculate" parent="Button">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:background">@drawable/button_shape</item>
+    </style>
+
+<!--    TOOL BAR STYLES-->
 
     <style name="Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
         <!-- Customize color of navigation drawer icon and back arrow -->
         <item name="colorControlNormal">@color/white</item>
         <item name="titleTextAppearance">@style/TextAppearance.ToolbarTitle</item>
     </style>
-
-    <style name="Widget.Toolbar" parent="@style/Widget.AppCompat.Toolbar">
-        <item name="contentInsetStart">0dp</item>
-        <item name="android:background">@drawable/gradient_0deg</item>
-    </style>
-
 
 </resources>

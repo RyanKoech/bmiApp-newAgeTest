@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="CardElevation_PickerCard">6dp</dimen>
+    <dimen name="MinHeight_ResultScreenButton">40dp</dimen>
     <dimen name="TextSize_Caption">18sp</dimen>
     <dimen name="TextSize_Body1">16sp</dimen>
     <dimen name="TextSize_Body2">12sp</dimen>

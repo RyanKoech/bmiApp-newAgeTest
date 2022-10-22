@@ -50,7 +50,7 @@
             android:layout_marginTop="32dp"
             android:gravity="center_horizontal">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_bmiWhole"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                 android:padding="0dp"
                 tools:text="18" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                 android:layout_toEndOf="@id/textView_bmiWhole"
                 android:layout_alignBaseline="@id/textView_bmiWhole"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_bmiDecimal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
             android:background="@color/white"
             android:backgroundTint="@color/white"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textView_userMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,14 +98,14 @@
             android:textAppearance="@style/TextAppearance.BmiMessage.Primary"
             tools:text="Hello John, You are Normal"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textView_bmiRange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.BmiMessage.Secondary"
             tools:text="Normal BMI range: 18.5kg/m2 - 25kg/m2"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textView_ponderalResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,14 +124,9 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_transparent_shape"
-                app:backgroundTint="@null"
-                android:minHeight="40dp"
-                android:text="Share"
-                android:textAppearance="@style/TextAppearance.Button.ResultScreen"
+                android:text="@string/text_share"
                 app:icon="@drawable/icon_share"
-                app:iconTint="@null"
-                android:drawablePadding="10dp"/>
+                style="@style/Button.ResultScreen"/>
 
             <Space
                 android:layout_width="40dp"
@@ -140,14 +135,9 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_transparent_shape"
-                app:backgroundTint="@null"
-                android:minHeight="40dp"
-                android:text="Rate"
-                android:textAppearance="@style/TextAppearance.Button.ResultScreen"
+                android:text="@string/text_rate"
                 app:icon="@drawable/icon_star"
-                app:iconTint="@null"
-                android:drawablePadding="10dp"/>
+                style="@style/Button.ResultScreen"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
