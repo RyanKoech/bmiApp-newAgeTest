@@ -1,6 +1,7 @@
 package com.example.bmiNewAge.presentation.results
 
 import android.Manifest
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -87,6 +88,27 @@ class ResultsFragment : Fragment() {
                     shareFile(file)
                 }
             }
+            buttonRate.setOnClickListener{
+                rateApp()
+            }
+        }
+    }
+
+    private fun rateApp() {
+        try{
+            val uri : Uri = Uri.parse("market://details?id=com.appovo.bmicalculator")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+
+        }catch(e : ActivityNotFoundException) {
+            val uri : Uri = Uri.parse("https://play.google.com/store/apps/details?id=com.appovo.bmicalculator")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+        }catch (e : Exception){
+            e.printStackTrace()
+            Toast.makeText(requireActivity(), "Something went wrong", Toast.LENGTH_SHORT).show()
         }
     }
 
