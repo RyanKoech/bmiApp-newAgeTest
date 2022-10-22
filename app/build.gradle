@@ -63,6 +63,9 @@ dependencies {
         //Google AdMob
     implementation 'com.google.android.gms:play-services-ads:21.3.0'
 
+        //Native Ads
+    implementation project(':nativetemplates')
+
     //TEST IMPLEMENTATION
         //JUnit
     testImplementation 'junit:junit:4.13.2'

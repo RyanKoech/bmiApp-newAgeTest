@@ -11,6 +11,8 @@ import androidx.navigation.fragment.navArgs
 import com.example.bmiNewAge.R
 import com.example.bmiNewAge.databinding.FragmentResultsBinding
 import com.example.bmiNewAge.common.Utilities
+import com.google.android.ads.nativetemplates.NativeTemplateStyle
+import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 
 class ResultsFragment : Fragment() {
@@ -45,7 +47,17 @@ class ResultsFragment : Fragment() {
 
         val ponderalIndex : String = Utilities.roundOffToTwoDp(viewModel.getPonderalCalculation())
         val formattedBmi = Utilities.getFormatBmiResult(viewModel.bmi)
-        val addRequest : AdRequest = AdRequest.Builder().build()
+        val adLoader: AdLoader = AdLoader.Builder(this.requireActivity(), getString(R.string.native_add_id))
+            .forNativeAd { nativeAd ->
+                val styles =
+                    NativeTemplateStyle.Builder().build()
+                val template = binding.nativeAd
+                template.setStyles(styles)
+                template.setNativeAd(nativeAd)
+            }
+            .build()
+
+        adLoader.loadAd(AdRequest.Builder().build())
 
         binding.apply {
             textViewUserMessage.text = viewModel.getBmiMessage()
@@ -53,7 +65,6 @@ class ResultsFragment : Fragment() {
             textViewPonderalResult.text = getString(R.string.message_ponderal_index, ponderalIndex)
             textViewBmiWhole.text = formattedBmi[0]
             textViewBmiDecimal.text = formattedBmi[1]
-            adView.loadAd(addRequest)
         }
     }
 }
