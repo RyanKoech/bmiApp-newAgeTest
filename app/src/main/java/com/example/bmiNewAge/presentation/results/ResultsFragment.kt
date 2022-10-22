@@ -47,7 +47,7 @@ class ResultsFragment : Fragment() {
 
         val ponderalIndex : String = Utilities.roundOffToTwoDp(viewModel.getPonderalCalculation())
         val formattedBmi = Utilities.getFormatBmiResult(viewModel.bmi)
-        val adLoader: AdLoader = AdLoader.Builder(this.requireActivity(), getString(R.string.native_add_id))
+        val adLoader: AdLoader = AdLoader.Builder(this.requireActivity(), getString(R.string.ads_id_native))
             .forNativeAd { nativeAd ->
                 val styles =
                     NativeTemplateStyle.Builder().build()

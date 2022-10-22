@@ -19,6 +19,7 @@
     <string name="full_stop">.</string>
     <string name="text_rate">Rate</string>
     <string name="text_share">Share</string>
-    <string name="admob_id">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="native_add_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="ads_id_app_open">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="ads_id_native">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="ads_id_interstitial">ca-app-pub-3940256099942544/1033173712</string>
 </resources>

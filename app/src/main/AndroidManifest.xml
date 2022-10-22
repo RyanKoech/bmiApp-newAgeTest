@@ -19,7 +19,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/admob_id"/>
+            android:value="@string/ads_id_app_open"/>
 
         <activity
             android:name=".presentation.MainActivity"
