@@ -200,3 +200,4 @@ fabric.properties
 /build
 /captures
 .cxx
+/nativetemplates

@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -19,7 +21,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -43,7 +46,7 @@ dependencies {
     //IMPLEMENTATION
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
         //Fragment and Fragment navigation
@@ -51,11 +54,18 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
     implementation "androidx.fragment:fragment-ktx:1.5.3"
 
+        //Hilt
+    implementation "com.google.dagger:hilt-android:2.42"
+    kapt 'com.google.dagger:hilt-compiler:2.42'
+
         //Splashscreen API
     implementation 'androidx.core:core-splashscreen:1.0.0'
 
         //Google AdMob
     implementation 'com.google.android.gms:play-services-ads:21.3.0'
+
+        //Native Ads
+    implementation project(':nativetemplates')
 
     //TEST IMPLEMENTATION
         //JUnit

@@ -8,16 +8,15 @@
     android:orientation="vertical"
     android:paddingHorizontal="12dp"
     android:clipToPadding="false"
-    tools:context=".ui.AddDetailsFragment">
+    tools:context=".presentation.add_details.AddDetailsFragment"
+    tools:theme="@style/Theme.BmiApp">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_regular"
         android:text="@string/fragment_addDetails_title"
-        android:textColor="@color/skyBlue_800"
-        android:textSize="24sp"
-        android:layout_marginTop="48dp"/>
+        android:layout_marginTop="48dp"
+        style="@style/TextAppearance.AddDetailTitle"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -33,20 +32,17 @@
             android:id="@+id/editText_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Style_HintTextAppearance"
-            android:textSize="16sp"
+            android:textAppearance="@style/TextAppearance.Input"
             android:textColor="@color/skyBlue_800"
             tools:text="Testing"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:textAppearance="@style/Style_HintTextAppearance"
-        android:textSize="18sp"
-        android:textColor="@color/black_400"
+        android:textAppearance="@style/TextAppearance.Caption"
         android:text="@string/fragment_addDetails_subtitle" />
 
 
@@ -56,46 +52,37 @@
         android:orientation="horizontal"
         android:layout_marginTop="24dp">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.Picker.Title"
             android:textAlignment="center"
-            android:fontFamily="@font/poppins"
-            android:textSize="16sp"
-            android:text="@string/text_weight"
-            android:textColor="@color/black" />
+            android:text="@string/text_weight" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.Picker.Title"
             android:textAlignment="center"
-            android:fontFamily="@font/poppins"
-            android:textSize="16sp"
-            android:text="@string/text_height"
-            android:textColor="@color/black" />
+            android:text="@string/text_height" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.Picker.Title"
             android:textAlignment="center"
-            android:fontFamily="@font/poppins"
-            android:textSize="16sp"
-            android:text="@string/text_gender"
-            android:textColor="@color/black" />
+            android:text="@string/text_gender" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:elevation="6dp"
         android:layout_marginTop="16dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardElevation="6dp">
+        style="@style/CardView.NumberPicker">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -110,7 +97,7 @@
 
             <NumberPicker
                 android:id="@+id/numberPicker_weight"
-                android:theme="@style/AppTheme.Picker"
+                android:theme="@style/NumberPicker"
                 android:layout_width="70dp"
                 android:selectionDividerHeight="3dp"
                 android:layout_height="150dp"
@@ -124,7 +111,7 @@
 
             <NumberPicker
                 android:id="@+id/numberPicker_height"
-                android:theme="@style/AppTheme.Picker"
+                android:theme="@style/NumberPicker"
                 android:layout_width="70dp"
                 android:selectionDividerHeight="3dp"
                 android:layout_height="150dp"
@@ -138,7 +125,7 @@
 
             <NumberPicker
                 android:id="@+id/numberPicker_gender"
-                android:theme="@style/AppTheme.Picker"
+                android:theme="@style/NumberPicker"
                 android:layout_width="70dp"
                 android:selectionDividerHeight="3dp"
                 android:layout_height="150dp"
@@ -154,19 +141,14 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_calculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginHorizontal="12dp"
-        android:background="@drawable/button_shape"
-        android:textAllCaps="false"
         android:paddingTop="4dp"
-        android:fontFamily="@font/poppins_bold"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:text="@string/text_calculate"/>
-
+        android:text="@string/text_calculate"
+        style="@style/Button.Calculate"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
