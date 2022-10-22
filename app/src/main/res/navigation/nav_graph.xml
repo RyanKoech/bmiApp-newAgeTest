@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/addDetailsFragment"
-        android:name="com.example.bmiNewAge.presentation.AddDetailsFragment"
+        android:name="com.example.bmiNewAge.presentation.add_details.AddDetailsFragment"
         android:label=" Add BMI Details"
         tools:layout="@layout/fragment_add_details">
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultsFragment"
-        android:name="com.example.bmiNewAge.presentation.ResultsFragment"
+        android:name="com.example.bmiNewAge.presentation.results.ResultsFragment"
         android:label="@string/fragment_title_results"
         tools:layout="@layout/fragment_results">
         <argument

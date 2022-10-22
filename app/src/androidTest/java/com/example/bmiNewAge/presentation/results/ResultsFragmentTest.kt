@@ -1,4 +1,4 @@
-package com.example.bmiNewAge.presentation
+package com.example.bmiNewAge.presentation.results
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.core.os.bundleOf

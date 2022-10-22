@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:paddingHorizontal="12dp"
     android:clipToPadding="false"
-    tools:context=".presentation.AddDetailsFragment">
+    tools:context=".presentation.add_details.AddDetailsFragment">
 
     <TextView
         android:layout_width="wrap_content"

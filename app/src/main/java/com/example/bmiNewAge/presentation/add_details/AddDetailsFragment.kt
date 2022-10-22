@@ -1,4 +1,4 @@
-package com.example.bmiNewAge.presentation
+package com.example.bmiNewAge.presentation.add_details
 
 import android.os.Bundle
 import android.text.Editable

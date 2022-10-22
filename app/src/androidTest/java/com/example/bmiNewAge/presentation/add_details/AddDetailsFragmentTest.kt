@@ -1,4 +1,4 @@
-package com.example.bmiNewAge.presentation
+package com.example.bmiNewAge.presentation.add_details
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.fragment.app.testing.FragmentScenario
