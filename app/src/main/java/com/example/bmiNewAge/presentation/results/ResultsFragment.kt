@@ -82,9 +82,9 @@ class ResultsFragment : Fragment() {
             textViewBmiWhole.text = formattedBmi[0]
             textViewBmiDecimal.text = formattedBmi[1]
             buttonShare.setOnClickListener{
-                val file : File? = saveImage()
-                if(file != null) {
-                    shareFile(file)
+                saveImage()
+                viewModel.file?.let {
+                    shareFile(it)
                 }
             }
             buttonRate.setOnClickListener{
@@ -146,8 +146,10 @@ class ResultsFragment : Fragment() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
-    private fun saveImage() : File?{
-        if(!checkPermission()) return null
+    private fun saveImage(){
+        if(!checkPermission()) return
+
+        if(viewModel.file != null) return
 
         try {
             val path : String = Environment.getExternalStorageDirectory().toString() + Constants.IMAGE_LOCATION_SUBDIRECTORIES + getString(R.string.app_name)
@@ -163,17 +165,16 @@ class ResultsFragment : Fragment() {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fOut)
             fOut.flush()
             fOut.close()
+            viewModel.setSavedFile(file)
 
             Toast.makeText(this.requireActivity(), getString(R.string.message_save_success), Toast.LENGTH_LONG).show()
 
-            return file
+
 
         } catch (e : Exception) {
             e.printStackTrace()
             showErrorToast()
         }
-
-        return null
     }
 
     private fun getScreenshot(): Bitmap {
@@ -201,4 +202,7 @@ class ResultsFragment : Fragment() {
     private fun showErrorToast() {
         Toast.makeText(requireActivity(), getString(R.string.message_error), Toast.LENGTH_SHORT).show()
     }
+
+
+
 }
