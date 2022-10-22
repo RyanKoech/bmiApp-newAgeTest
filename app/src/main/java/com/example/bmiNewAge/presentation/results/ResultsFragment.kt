@@ -27,10 +27,12 @@ import com.example.bmiNewAge.common.Utilities
 import com.google.android.ads.nativetemplates.NativeTemplateStyle
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
 
+@AndroidEntryPoint
 class ResultsFragment : Fragment() {
 
     private var _binding : FragmentResultsBinding? = null
@@ -63,7 +65,7 @@ class ResultsFragment : Fragment() {
 
         val ponderalIndex : String = Utilities.roundOffToTwoDp(viewModel.getPonderalCalculation())
         val formattedBmi = Utilities.getFormatBmiResult(viewModel.bmi)
-        val adLoader: AdLoader = AdLoader.Builder(this.requireActivity(), getString(R.string.ads_id_native))
+        val adLoader: AdLoader = AdLoader.Builder(requireActivity(), getString(R.string.ads_id_native))
             .forNativeAd { nativeAd ->
                 val styles =
                     NativeTemplateStyle.Builder().build()
@@ -167,7 +169,7 @@ class ResultsFragment : Fragment() {
             fOut.close()
             viewModel.setSavedFile(file)
 
-            Toast.makeText(this.requireActivity(), getString(R.string.message_save_success), Toast.LENGTH_LONG).show()
+            Toast.makeText(requireActivity(), getString(R.string.message_save_success), Toast.LENGTH_LONG).show()
 
 
 
@@ -190,10 +192,10 @@ class ResultsFragment : Fragment() {
     }
 
     private fun checkPermission() : Boolean {
-        val permission : Int = ActivityCompat.checkSelfPermission(this.requireActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        val permission : Int = ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
         if(permission != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this.requireActivity(), arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE), 1)
             return false
         }
         return true

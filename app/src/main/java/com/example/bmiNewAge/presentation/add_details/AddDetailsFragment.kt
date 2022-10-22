@@ -45,7 +45,7 @@ class AddDetailsFragment : Fragment() {
 
     private fun loadInterstitialAd() {
         val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(this.requireActivity(),getString(R.string.ads_id_interstitial), adRequest, object : InterstitialAdLoadCallback() {
+        InterstitialAd.load(requireActivity(),getString(R.string.ads_id_interstitial), adRequest, object : InterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 mInterstitialAd = null
             }
@@ -96,7 +96,7 @@ class AddDetailsFragment : Fragment() {
         setUpInterstitialAdCallback(weight, height, name)
 
         if (mInterstitialAd != null) {
-            mInterstitialAd?.show(this.requireActivity())
+            mInterstitialAd?.show(requireActivity())
         }else{
             navigateToResultsScreen(weight, height, name)
         }
