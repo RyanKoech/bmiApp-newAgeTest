@@ -87,7 +87,7 @@ class AddDetailsFragment : Fragment() {
         val name = binding.editTextName.text.toString()
 
         if(name.isBlank()){
-            binding.editTextName.error = "Please enter your name"
+            binding.editTextName.error = getString(R.string.message_input_error)
             return
         }
 
@@ -120,7 +120,7 @@ class AddDetailsFragment : Fragment() {
     }
 
     private fun navigateToResultsScreen(weight : Float, height: Float, name : String) {
-        val action  = AddDetailsFragmentDirections.actionAddDetailsFragmentToResultsFragment(weight.toFloat(), height.toFloat(), name)
+        val action  = AddDetailsFragmentDirections.actionAddDetailsFragmentToResultsFragment(weight, height, name)
         binding.editTextName.text = Editable.Factory.getInstance().newEditable("")
         findNavController().navigate(action)
     }

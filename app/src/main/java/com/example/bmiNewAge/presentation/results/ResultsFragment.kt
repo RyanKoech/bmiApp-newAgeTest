@@ -21,15 +21,14 @@ import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.bmiNewAge.R
+import com.example.bmiNewAge.common.Constants
 import com.example.bmiNewAge.databinding.FragmentResultsBinding
 import com.example.bmiNewAge.common.Utilities
 import com.google.android.ads.nativetemplates.NativeTemplateStyle
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import java.io.File
-import java.io.FileNotFoundException
 import java.io.FileOutputStream
-import java.io.IOException
 import java.util.*
 
 class ResultsFragment : Fragment() {
@@ -96,19 +95,19 @@ class ResultsFragment : Fragment() {
 
     private fun rateApp() {
         try{
-            val uri : Uri = Uri.parse("market://details?id=com.appovo.bmicalculator")
+            val uri : Uri = Uri.parse(Constants.PLAYSTORE_APP_URL + Constants.TEST_PACKAGE_NAME)
             val intent = Intent(Intent.ACTION_VIEW, uri)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
 
         }catch(e : ActivityNotFoundException) {
-            val uri : Uri = Uri.parse("https://play.google.com/store/apps/details?id=com.appovo.bmicalculator")
+            val uri : Uri = Uri.parse(Constants.PLAYSTORE_WEB_URL + Constants.TEST_PACKAGE_NAME)
             val intent = Intent(Intent.ACTION_VIEW, uri)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }catch (e : Exception){
             e.printStackTrace()
-            Toast.makeText(requireActivity(), "Something went wrong", Toast.LENGTH_SHORT).show()
+            showErrorToast()
         }
     }
 
@@ -122,15 +121,15 @@ class ResultsFragment : Fragment() {
         val intent = Intent()
         intent.action = Intent.ACTION_SEND
         intent.type = "image/*"
-        intent.putExtra(Intent.EXTRA_SUBJECT, "BMI Screenshot")
-        intent.putExtra(Intent.EXTRA_TEXT, "BMI App has calculated my BMI. Take a look.")
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_image_subject))
+        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_image_text))
         intent.putExtra(Intent.EXTRA_STREAM, uri)
 
         try {
-            startActivity(Intent.createChooser(intent, "Share using"))
+            startActivity(Intent.createChooser(intent, getString(R.string.share_image_intent_title)))
         }catch (e : Exception) {
             e.printStackTrace()
-            Toast.makeText(requireActivity(), "Something went wrong", Toast.LENGTH_SHORT).show()
+            showErrorToast()
         }
     }
 
@@ -142,7 +141,7 @@ class ResultsFragment : Fragment() {
         if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
             binding.buttonShare.performClick()
         }else {
-            Toast.makeText(this.requireActivity(), "Permission denied", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireActivity(), getString(R.string.message_permission_denied), Toast.LENGTH_SHORT).show()
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
@@ -151,12 +150,12 @@ class ResultsFragment : Fragment() {
         if(!checkPermission()) return null
 
         try {
-            val path : String = Environment.getExternalStorageDirectory().toString() + "/DCIM/" + getString(R.string.app_name)
+            val path : String = Environment.getExternalStorageDirectory().toString() + Constants.IMAGE_LOCATION_SUBDIRECTORIES + getString(R.string.app_name)
             val fileDir = File(path)
             if(!fileDir.exists())
                 fileDir.mkdir()
 
-            val mPath : String = path + "/bmi_screenshot_" + Calendar.getInstance().timeInMillis.toString() + ".png"
+            val mPath : String = path + Constants.IMAGE_SUFFIX + Calendar.getInstance().timeInMillis.toString() + ".png"
             
             val bitmap : Bitmap = getScreenshot()
             val file = File(mPath)
@@ -165,13 +164,13 @@ class ResultsFragment : Fragment() {
             fOut.flush()
             fOut.close()
 
-            Toast.makeText(this.requireActivity(), "Image Saved Successfully", Toast.LENGTH_LONG).show()
+            Toast.makeText(this.requireActivity(), getString(R.string.message_save_success), Toast.LENGTH_LONG).show()
 
             return file
 
         } catch (e : Exception) {
             e.printStackTrace()
-            Toast.makeText(this.requireActivity(), "Something went wrong", Toast.LENGTH_LONG).show()
+            showErrorToast()
         }
 
         return null
@@ -197,5 +196,9 @@ class ResultsFragment : Fragment() {
             return false
         }
         return true
+    }
+
+    private fun showErrorToast() {
+        Toast.makeText(requireActivity(), getString(R.string.message_error), Toast.LENGTH_SHORT).show()
     }
 }

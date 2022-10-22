@@ -11,4 +11,9 @@ object Constants {
     const val BMI_UPPER_UNDERWEIGHT : Double = 18.50
     const val BMI_UPPER_HEALTHYWEIGHT : Double = 25.00
     const val BMI_UPPER_OVERWEIGHT : Double = 30.00
+    const val PLAYSTORE_WEB_URL = "https://play.google.com/store/apps/details?id="
+    const val PLAYSTORE_APP_URL = "market://details?id="
+    const val TEST_PACKAGE_NAME = "com.appovo.bmicalculator"
+    const val IMAGE_LOCATION_SUBDIRECTORIES = "/DCIM/"
+    const val IMAGE_SUFFIX = "/bmi_screenshot_"
 }
