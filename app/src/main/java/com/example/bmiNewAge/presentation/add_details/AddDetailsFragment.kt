@@ -13,12 +13,20 @@ import com.example.bmiNewAge.R
 import com.example.bmiNewAge.databinding.FragmentAddDetailsBinding
 import com.example.bmiNewAge.common.Constants
 import com.example.bmiNewAge.common.Utilities
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 
 class AddDetailsFragment : Fragment() {
 
     private var _binding : FragmentAddDetailsBinding? = null
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     internal val binding get() = _binding!!
+    private var mInterstitialAd: InterstitialAd? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,10 +36,25 @@ class AddDetailsFragment : Fragment() {
         this.activity?.findViewById<TextView>(R.id.textView_toolbarTitle)?.text = getString(R.string.fragment_title_addDetails)
         _binding = FragmentAddDetailsBinding.inflate(inflater, container, false)
 
+        loadInterstitialAd()
         initializeViewElements()
 
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    private fun loadInterstitialAd() {
+        val adRequest = AdRequest.Builder().build()
+        InterstitialAd.load(this.requireActivity(),"ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                mInterstitialAd = null
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                mInterstitialAd = interstitialAd
+            }
+        })
+
     }
 
     private fun initializeViewElements() {
@@ -68,13 +91,38 @@ class AddDetailsFragment : Fragment() {
             return
         }
 
-        val weight : Int = binding.numberPickerWeight.value
-        val height : Int = binding.numberPickerHeight.value
+        val weight : Float = binding.numberPickerWeight.value.toFloat()
+        val height : Float = binding.numberPickerHeight.value.toFloat()
+        setUpInterstitialAdCallback(weight, height, name)
 
+        if (mInterstitialAd != null) {
+            mInterstitialAd?.show(this.requireActivity())
+        }else{
+            navigateToResultsScreen(weight, height, name)
+        }
+
+    }
+
+    private fun setUpInterstitialAdCallback(weight : Float, height: Float, name : String) {
+
+        mInterstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
+            override fun onAdDismissedFullScreenContent() {
+                // Called when ad is dismissed.
+                mInterstitialAd = null
+                navigateToResultsScreen(weight, height, name)
+            }
+
+            override fun onAdFailedToShowFullScreenContent(p0: AdError) {
+                super.onAdFailedToShowFullScreenContent(p0)
+                mInterstitialAd = null
+            }
+        }
+    }
+
+    private fun navigateToResultsScreen(weight : Float, height: Float, name : String) {
         val action  = AddDetailsFragmentDirections.actionAddDetailsFragmentToResultsFragment(weight.toFloat(), height.toFloat(), name)
         binding.editTextName.text = Editable.Factory.getInstance().newEditable("")
         findNavController().navigate(action)
-
     }
 
 }
