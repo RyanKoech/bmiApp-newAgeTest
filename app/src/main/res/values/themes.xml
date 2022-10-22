@@ -33,15 +33,39 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Style_HintTextAppearance" parent="TextAppearance.MaterialComponents.Subtitle1">
+    <style name="TextAppearance.AddDetailTitle" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:textSize">@dimen/TextSize_Heading5</item>
+        <item name="android:textColor">@color/skyBlue_800</item>
+    </style>
+
+    <style name="TextAppearance.Input" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:fontFamily">@font/poppins_light</item>
         <item name="fontFamily">@font/poppins_light</item>
+        <item name="android:textSize">@dimen/TextSize_Body1</item>
+        <item name="android:textColor">@color/skyBlue_800</item>
+    </style>
+
+    <style name="TextAppearance.Caption" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="fontFamily">@font/poppins_light</item>
+        <item name="android:textSize">@dimen/TextSize_Caption</item>
+        <item name="android:textColor">@color/black_400</item>
+    </style>
+
+    <style name="TextAppearance.Picker.Title" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textSize">@dimen/TextSize_Body1</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar" >
         <item name="android:textColorPrimary">@color/skyBlue_800</item>
         <item name="android:textColorSecondary">@color/skyBlue_800</item>
         <item name="android:fontFamily">@font/poppins_bold</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/TextSize_Body1</item>
     </style>
 
     <style name="BmiAppTheme.ToolbarTitle" parent="Widget.AppCompat.Toolbar">

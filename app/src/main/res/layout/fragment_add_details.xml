@@ -8,16 +8,15 @@
     android:orientation="vertical"
     android:paddingHorizontal="12dp"
     android:clipToPadding="false"
-    tools:context=".presentation.add_details.AddDetailsFragment">
+    tools:context=".presentation.add_details.AddDetailsFragment"
+    tools:theme="@style/Theme.BmiApp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_regular"
         android:text="@string/fragment_addDetails_title"
-        android:textColor="@color/skyBlue_800"
-        android:textSize="24sp"
-        android:layout_marginTop="48dp"/>
+        android:layout_marginTop="48dp"
+        style="@style/TextAppearance.AddDetailTitle"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -33,8 +32,7 @@
             android:id="@+id/editText_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Style_HintTextAppearance"
-            android:textSize="16sp"
+            android:textAppearance="@style/TextAppearance.Input"
             android:textColor="@color/skyBlue_800"
             tools:text="Testing"/>
 
@@ -44,9 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:textAppearance="@style/Style_HintTextAppearance"
-        android:textSize="18sp"
-        android:textColor="@color/black_400"
+        android:textAppearance="@style/TextAppearance.Caption"
         android:text="@string/fragment_addDetails_subtitle" />
 
 
@@ -60,31 +56,25 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.Picker.Title"
             android:textAlignment="center"
-            android:fontFamily="@font/poppins"
-            android:textSize="16sp"
-            android:text="@string/text_weight"
-            android:textColor="@color/black" />
+            android:text="@string/text_weight" />
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.Picker.Title"
             android:textAlignment="center"
-            android:fontFamily="@font/poppins"
-            android:textSize="16sp"
-            android:text="@string/text_height"
-            android:textColor="@color/black" />
+            android:text="@string/text_height" />
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.Picker.Title"
             android:textAlignment="center"
-            android:fontFamily="@font/poppins"
-            android:textSize="16sp"
-            android:text="@string/text_gender"
-            android:textColor="@color/black" />
+            android:text="@string/text_gender" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -154,13 +144,14 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_calculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginHorizontal="12dp"
         android:background="@drawable/button_shape"
+        app:backgroundTint="@null"
         android:textAllCaps="false"
         android:paddingTop="4dp"
         android:fontFamily="@font/poppins_bold"

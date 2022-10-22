@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="TextSize_Caption">18sp</dimen>
+    <dimen name="TextSize_Body1">16sp</dimen>
     <dimen name="TextSize_Heading6">22sp</dimen>
+    <dimen name="TextSize_Heading5">24sp</dimen>
 </resources>
