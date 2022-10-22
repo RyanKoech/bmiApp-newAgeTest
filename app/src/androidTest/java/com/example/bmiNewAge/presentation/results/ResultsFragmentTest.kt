@@ -11,6 +11,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import com.example.bmiNewAge.R
 import com.example.bmiNewAge.common.Constants
 import com.example.bmiNewAge.common.Utilities
+import com.example.bmiNewAge.util.launchFragmentInHiltContainer
 import com.google.common.truth.Truth.assertThat
 import org.hamcrest.Matchers.allOf
 import org.junit.Before
@@ -23,7 +24,6 @@ class ResultsFragmentTest {
     @get:Rule
     val instantTaskExecutor = InstantTaskExecutorRule()
 
-    private lateinit var scenario : FragmentScenario<ResultsFragment>
     private lateinit var navController: NavController
     private var weight : Float = 60F
     private var height : Float = 160F
@@ -32,13 +32,11 @@ class ResultsFragmentTest {
     @Before
     fun setup() {
         navController = Mockito.mock(NavController::class.java)
-        scenario = launchFragmentInContainer(
+        launchFragmentInHiltContainer<ResultsFragment>(
             themeResId = R.style.Theme_BmiApp,
             fragmentArgs = bundleOf("weight" to weight, "height" to height, "name" to name)
-        )
-
-        scenario.onFragment{
-            Navigation.setViewNavController(it.view!!, navController)
+        ){
+            Navigation.setViewNavController(this.view!!, navController)
         }
     }
 
@@ -102,14 +100,12 @@ class ResultsFragmentTest {
     @Test
     fun passedUnderweightArgument_correctMessagesDisplayed() {
         val underWeight = 40F
-        val scenario :FragmentScenario<ResultsFragment> = launchFragmentInContainer(
+       launchFragmentInHiltContainer<ResultsFragment>(
             themeResId = R.style.Theme_BmiApp,
             fragmentArgs = bundleOf("weight" to underWeight, "height" to height, "name" to name)
-        )
-
-        scenario.onFragment{
-            Navigation.setViewNavController(it.view!!, navController)
-        }
+        ){
+           Navigation.setViewNavController(this.view!!, navController)
+       }
 
         val userMessageTextView = onView(allOf(
             withId(R.id.textView_userMessage),
@@ -128,13 +124,11 @@ class ResultsFragmentTest {
     @Test
     fun passedNormalWeightArgument_correctMessagesDisplayed() {
         val normalWeight = 50F
-        val scenario :FragmentScenario<ResultsFragment> = launchFragmentInContainer(
+        launchFragmentInHiltContainer<ResultsFragment>(
             themeResId = R.style.Theme_BmiApp,
             fragmentArgs = bundleOf("weight" to normalWeight, "height" to height, "name" to name)
-        )
-
-        scenario.onFragment{
-            Navigation.setViewNavController(it.view!!, navController)
+        ){
+            Navigation.setViewNavController(this.view!!, navController)
         }
 
         val userMessageTextView = onView(allOf(
@@ -154,13 +148,11 @@ class ResultsFragmentTest {
     @Test
     fun passedOverweightArgument_correctMessagesDisplayed() {
         val overWeight = 70F
-        val scenario :FragmentScenario<ResultsFragment> = launchFragmentInContainer(
+        launchFragmentInHiltContainer<ResultsFragment>(
             themeResId = R.style.Theme_BmiApp,
             fragmentArgs = bundleOf("weight" to overWeight, "height" to height, "name" to name)
-        )
-
-        scenario.onFragment{
-            Navigation.setViewNavController(it.view!!, navController)
+        ){
+            Navigation.setViewNavController(this.view!!, navController)
         }
 
         val userMessageTextView = onView(allOf(
@@ -180,13 +172,11 @@ class ResultsFragmentTest {
     @Test
     fun passedObeseWeightArgument_correctMessagesDisplayed() {
         val obeseWeight = 85F
-        val scenario :FragmentScenario<ResultsFragment> = launchFragmentInContainer(
+        launchFragmentInHiltContainer<ResultsFragment>(
             themeResId = R.style.Theme_BmiApp,
             fragmentArgs = bundleOf("weight" to obeseWeight, "height" to height, "name" to name)
-        )
-
-        scenario.onFragment{
-            Navigation.setViewNavController(it.view!!, navController)
+        ){
+            Navigation.setViewNavController(this.view!!, navController)
         }
 
         val userMessageTextView = onView(allOf(
