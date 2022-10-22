@@ -1,9 +1,12 @@
 package com.example.bmiNewAge.presentation.results
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import androidx.fragment.app.Fragment
@@ -13,6 +16,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.bmiNewAge.R
@@ -78,8 +82,33 @@ class ResultsFragment : Fragment() {
             textViewBmiWhole.text = formattedBmi[0]
             textViewBmiDecimal.text = formattedBmi[1]
             buttonShare.setOnClickListener{
-                saveImage()
+                val file : File? = saveImage()
+                if(file != null) {
+                    shareFile(file)
+                }
             }
+        }
+    }
+
+    private fun shareFile(file: File) {
+        val uri : Uri = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            FileProvider.getUriForFile(requireActivity(), requireActivity().packageName + ".provider", file)
+        }else {
+            Uri.fromFile(file)
+        }
+
+        val intent = Intent()
+        intent.action = Intent.ACTION_SEND
+        intent.type = "image/*"
+        intent.putExtra(Intent.EXTRA_SUBJECT, "BMI Screenshot")
+        intent.putExtra(Intent.EXTRA_TEXT, "BMI App has calculated my BMI. Take a look.")
+        intent.putExtra(Intent.EXTRA_STREAM, uri)
+
+        try {
+            startActivity(Intent.createChooser(intent, "Share using"))
+        }catch (e : Exception) {
+            e.printStackTrace()
+            Toast.makeText(requireActivity(), "Something went wrong", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -89,15 +118,15 @@ class ResultsFragment : Fragment() {
         grantResults: IntArray
     ) {
         if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-            // saveImage()
+            binding.buttonShare.performClick()
         }else {
             Toast.makeText(this.requireActivity(), "Permission denied", Toast.LENGTH_SHORT).show()
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
-    private fun saveImage() {
-        if(!checkPermission()) return
+    private fun saveImage() : File?{
+        if(!checkPermission()) return null
 
         try {
             val path : String = Environment.getExternalStorageDirectory().toString() + "/DCIM/" + getString(R.string.app_name)
@@ -116,9 +145,14 @@ class ResultsFragment : Fragment() {
 
             Toast.makeText(this.requireActivity(), "Image Saved Successfully", Toast.LENGTH_LONG).show()
 
+            return file
+
         } catch (e : Exception) {
             e.printStackTrace()
+            Toast.makeText(this.requireActivity(), "Something went wrong", Toast.LENGTH_LONG).show()
         }
+
+        return null
     }
 
     private fun getScreenshot(): Bitmap {
